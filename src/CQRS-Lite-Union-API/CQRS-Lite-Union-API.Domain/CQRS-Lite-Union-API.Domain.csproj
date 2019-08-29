@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>CQRS_Lite_Union_API.Domain</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CQRS-Lite-Union-API.Common\CQRS-Lite-Union-API.Common.csproj" />
+  </ItemGroup>
+
+</Project>
