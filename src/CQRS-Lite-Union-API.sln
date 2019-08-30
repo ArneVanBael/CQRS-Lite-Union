@@ -15,15 +15,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "50-Hosts", "50-Hosts", "{09
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "60-Tests", "60-Tests", "{B2BF56F2-577E-4964-A51B-FBC08272E55C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS-Lite-Union-API.Application", "CQRS-Lite-Union-API.Application\CQRS-Lite-Union-API.Application.csproj", "{990099BC-2E7F-4DA2-8326-80807F7BCE40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS-Lite-Union-API.Application", "app\CQRS-Lite-Union-API.Application\CQRS-Lite-Union-API.Application.csproj", "{990099BC-2E7F-4DA2-8326-80807F7BCE40}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS-Lite-Union-API.Domain", "CQRS-Lite-Union-API.Domain\CQRS-Lite-Union-API.Domain.csproj", "{F442F810-C685-4129-83B8-015C7E6B5DAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS-Lite-Union-API.Domain", "app\CQRS-Lite-Union-API.Domain\CQRS-Lite-Union-API.Domain.csproj", "{F442F810-C685-4129-83B8-015C7E6B5DAF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS-Lite-Union-API.Common", "CQRS-Lite-Union-API.Common\CQRS-Lite-Union-API.Common.csproj", "{FD76C43F-C09A-49A4-B152-1B01886F6759}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS-Lite-Union-API.Common", "app\CQRS-Lite-Union-API.Common\CQRS-Lite-Union-API.Common.csproj", "{FD76C43F-C09A-49A4-B152-1B01886F6759}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS-Lite-Union-API.Infra", "CQRS-Lite-Union-API.Infra\CQRS-Lite-Union-API.Infra.csproj", "{60B78D73-9AD5-495C-80CE-D18BA3197116}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS-Lite-Union-API.Infra", "app\CQRS-Lite-Union-API.Infra\CQRS-Lite-Union-API.Infra.csproj", "{60B78D73-9AD5-495C-80CE-D18BA3197116}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS-Lite-Union-API.Persist.Sql", "CQRS-Lite-Union-API.Persist.Sql\CQRS-Lite-Union-API.Persist.Sql.csproj", "{61772EFB-DF37-4591-87AF-B546E70B2155}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS-Lite-Union-API.Persist.Sql", "app\CQRS-Lite-Union-API.Persist.Sql\CQRS-Lite-Union-API.Persist.Sql.csproj", "{61772EFB-DF37-4591-87AF-B546E70B2155}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
