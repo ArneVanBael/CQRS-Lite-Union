@@ -35,16 +35,16 @@ namespace CQRS_Lite_Union_API.Infra.DependencyResolution
             _services.AddTransient(contract, implementation);
         }
 
-        public void RegisterDbContext<TDbContext>() where TDbContext : class
+        public void RegisterDbContext<TContract,TDbContext>() where TDbContext : class
         {
             if (!typeof(DbContext).IsAssignableFrom(typeof(TDbContext))) throw new ArgumentException($"The generic type parameter shoud inherit DbContext. {typeof(TDbContext)} does not inherit from DbContext");
 
             var methods = typeof(EntityFrameworkServiceCollectionExtensions).GetMethods();
             var method = methods.Single(el => el.Name == "AddDbContext" && el.IsStatic && el.IsGenericMethod &&
-                                              el.GetGenericArguments().Length == 1 && el.GetParameters().Length == 4 &&
+                                              el.GetGenericArguments().Length == 2 && el.GetParameters().Length == 4 &&
                                               el.GetParameters()[1].ParameterType == typeof(Action<DbContextOptionsBuilder>));
 
-            var genericMethod = method.MakeGenericMethod(typeof(TDbContext));
+            var genericMethod = method.MakeGenericMethod(typeof(TContract), typeof(TDbContext));
             genericMethod.Invoke(null, new object[] { _services, null, ServiceLifetime.Scoped, ServiceLifetime.Singleton });
         }
     }

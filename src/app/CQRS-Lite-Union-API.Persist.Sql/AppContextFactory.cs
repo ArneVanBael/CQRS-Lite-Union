@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 
 namespace CQRS_Lite_Union_API.Persist.Sql
 {
+    // for EF migrations
     public class AppContextFactory : ContextDesignFactory<AppContext>
     {
         protected override AppContext CreateNewInstance(IOptions<ConnectionStrings> options)

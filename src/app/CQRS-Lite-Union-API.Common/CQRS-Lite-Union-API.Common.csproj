@@ -5,4 +5,8 @@
     <RootNamespace>CQRS_Lite_Union_API.Common</RootNamespace>
   </PropertyGroup>
 
+  <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy $(TargetDir)*.dll $(ProjectDir)..\..\app\CQRS-Lite-Union-API.WebApi\bin\$(ConfigurationName)\netcoreapp3.0\ /y&#xD;&#xA;xcopy $(TargetDir)*.pdb $(ProjectDir)..\..\app\CQRS-Lite-Union-API.WebApi\bin\$(ConfigurationName)\netcoreapp3.0\ /y" />
+  </Target>-->
+
 </Project>

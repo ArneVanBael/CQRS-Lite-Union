@@ -21,9 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS-Lite-Union-API.Domain"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS-Lite-Union-API.Common", "app\CQRS-Lite-Union-API.Common\CQRS-Lite-Union-API.Common.csproj", "{FD76C43F-C09A-49A4-B152-1B01886F6759}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS-Lite-Union-API.Infra", "app\CQRS-Lite-Union-API.Infra\CQRS-Lite-Union-API.Infra.csproj", "{60B78D73-9AD5-495C-80CE-D18BA3197116}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS-Lite-Union-API.Infra", "app\CQRS-Lite-Union-API.Infra\CQRS-Lite-Union-API.Infra.csproj", "{60B78D73-9AD5-495C-80CE-D18BA3197116}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS-Lite-Union-API.Persist.Sql", "app\CQRS-Lite-Union-API.Persist.Sql\CQRS-Lite-Union-API.Persist.Sql.csproj", "{61772EFB-DF37-4591-87AF-B546E70B2155}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS-Lite-Union-API.Persist.Sql", "app\CQRS-Lite-Union-API.Persist.Sql\CQRS-Lite-Union-API.Persist.Sql.csproj", "{61772EFB-DF37-4591-87AF-B546E70B2155}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS-Lite-Union-API.WebApi", "app\CQRS-Lite-Union-API.WebApi\CQRS-Lite-Union-API.WebApi.csproj", "{B4B269BE-8D68-455D-AAEE-91652DCBB595}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{61772EFB-DF37-4591-87AF-B546E70B2155}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61772EFB-DF37-4591-87AF-B546E70B2155}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61772EFB-DF37-4591-87AF-B546E70B2155}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4B269BE-8D68-455D-AAEE-91652DCBB595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4B269BE-8D68-455D-AAEE-91652DCBB595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4B269BE-8D68-455D-AAEE-91652DCBB595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4B269BE-8D68-455D-AAEE-91652DCBB595}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{FD76C43F-C09A-49A4-B152-1B01886F6759} = {D14190F0-CE0B-4C29-A1D9-C4086210C5E0}
 		{60B78D73-9AD5-495C-80CE-D18BA3197116} = {5E00CCF5-67C3-4931-872C-FCE2ED969F68}
 		{61772EFB-DF37-4591-87AF-B546E70B2155} = {BEBF740C-97BF-4951-B2A2-7A3577C71999}
+		{B4B269BE-8D68-455D-AAEE-91652DCBB595} = {09E5BD5C-B176-46A8-B7CA-2805590EC2EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1D4EA657-A91E-4CCE-BDAE-144EA8CA7E15}

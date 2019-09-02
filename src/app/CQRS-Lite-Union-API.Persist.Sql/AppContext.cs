@@ -1,4 +1,5 @@
-﻿using CQRS_Lite_Union_API.Common.Options;
+﻿using CQRS_Lite_Union_API.Application.Abstractions;
+using CQRS_Lite_Union_API.Common.Options;
 using CQRS_Lite_Union_API.Domain.Attendees;
 using CQRS_Lite_Union_API.Domain.Workshops;
 using Microsoft.EntityFrameworkCore;
@@ -6,7 +7,7 @@ using Microsoft.Extensions.Options;
 
 namespace CQRS_Lite_Union_API.Persist.Sql
 {
-    public class AppContext : DbContext
+    public class AppContext : DbContext, IAppContext
     {
         private readonly ConnectionStrings _options;
 

@@ -8,6 +8,6 @@ namespace CQRS_Lite_Union_API.Common.DependencyResolution
         void RegisterPerRequest<TContract, TImplementation>() where TImplementation : class, TContract;
         void RegisterTransient<TContract, TImplementation>() where TImplementation : class, TContract;
         void RegisterTransient(Type contract, Type implementation);
-        void RegisterDbContext<TDbContext>() where TDbContext : class;
+        void RegisterDbContext<TContract,TDbContext>() where TDbContext : class;
     }
 }
