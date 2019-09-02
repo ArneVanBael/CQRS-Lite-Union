@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Attendees\Controllers\" />
     <Folder Include="Attendees\Models\" />
     <Folder Include="Workshops\Models\" />
   </ItemGroup>
