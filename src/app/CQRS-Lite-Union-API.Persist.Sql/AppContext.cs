@@ -4,6 +4,7 @@ using CQRS_Lite_Union_API.Domain.Attendees;
 using CQRS_Lite_Union_API.Domain.Workshops;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using System.Linq;
 
 namespace CQRS_Lite_Union_API.Persist.Sql
 {
@@ -31,7 +32,28 @@ namespace CQRS_Lite_Union_API.Persist.Sql
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppContext).Assembly);
         }
 
+        public void BeginTransaction()
+        {
+            if (Database.CurrentTransaction != null) return;
+            Database.BeginTransaction();
+        }
+
+        public void CommitTransaction()
+        {
+            Database.CommitTransaction();
+        }
+
+        public void RollBackTransaction()
+        {
+            Database.RollbackTransaction();
+        }
+
         public DbSet<Workshop> Workshops { get; set; }
+        public IQueryable<Workshop> WorkshopsQueryRepository => Workshops.AsNoTracking();
+        public IQueryable<Workshop> WorkshopsCommandRepository => Workshops;
+        
         public DbSet<Attendee> Attendees { get; set; }
+        public IQueryable<Attendee> AttendeeQueryRepository => Attendees.AsNoTracking();
+        public IQueryable<Attendee> AttendeeCommandRepository => Attendees;
     }
 }

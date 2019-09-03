@@ -9,11 +9,11 @@ namespace CQRS_Lite_Union_API.Application.Utils
 {
     public abstract class CommandHandlerBase<TRequest> : IRequestHandler<TRequest, IResponse> where TRequest : IRequest<IResponse>
     {
-        private readonly IAppContext _context;
+        protected IAppContext Context { get; private set; }
 
         public CommandHandlerBase(IAppContext context)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         public async Task<IResponse> Handle(TRequest request, CancellationToken cancellationToken)
@@ -21,36 +21,20 @@ namespace CQRS_Lite_Union_API.Application.Utils
             IResponse response;
             try
             {
-                StartDbTransaction();
+                Context.BeginTransaction();
 
                 response = await HandleAsync(request, cancellationToken);
 
-                CommitDbTransaction();
+                Context.CommitTransaction();
             }
             catch (Exception ex)
             {
                 // log exception
-                RollbackDbTransaction();
+                Context.RollBackTransaction();
                 throw;
             }
 
             return response;
-        }
-
-        private void StartDbTransaction()
-        {
-            if (_context.Database.CurrentTransaction != null) return;
-            _context.Database.BeginTransaction();
-        }
-
-        private void RollbackDbTransaction()
-        {
-            _context.Database.RollbackTransaction();
-        }
-
-        private void CommitDbTransaction()
-        {
-            _context.Database.CommitTransaction();
         }
 
         protected abstract Task<IResponse> HandleAsync(TRequest request, CancellationToken cancellationToken);
