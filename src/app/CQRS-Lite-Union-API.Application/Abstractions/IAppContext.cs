@@ -9,10 +9,10 @@ namespace CQRS_Lite_Union_API.Application.Abstractions
     public interface IAppContext
     {
         IQueryable<Workshop> WorkshopsQueryRepository { get; }
-        IQueryable<Workshop> WorkshopsCommandRepository { get; }
+        IAppDbSet<Workshop> WorkshopsCommandRepository { get; }
 
         IQueryable<Attendee> AttendeeQueryRepository { get; }
-        IQueryable<Attendee> AttendeeCommandRepository { get; }
+        IAppDbSet<Attendee> AttendeeCommandRepository { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 

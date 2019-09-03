@@ -50,10 +50,10 @@ namespace CQRS_Lite_Union_API.Persist.Sql
 
         public DbSet<Workshop> Workshops { get; set; }
         public IQueryable<Workshop> WorkshopsQueryRepository => Workshops.AsNoTracking();
-        public IQueryable<Workshop> WorkshopsCommandRepository => Workshops;
+        public IAppDbSet<Workshop> WorkshopsCommandRepository => Workshops.AsIAppDbSet();
         
         public DbSet<Attendee> Attendees { get; set; }
         public IQueryable<Attendee> AttendeeQueryRepository => Attendees.AsNoTracking();
-        public IQueryable<Attendee> AttendeeCommandRepository => Attendees;
+        public IAppDbSet<Attendee> AttendeeCommandRepository => Attendees.AsIAppDbSet();
     }
 }
