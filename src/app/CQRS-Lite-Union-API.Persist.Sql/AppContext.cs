@@ -48,12 +48,17 @@ namespace CQRS_Lite_Union_API.Persist.Sql
             Database.RollbackTransaction();
         }
 
-        public DbSet<Workshop> Workshops { get; set; }
+        public void DatabaseEnsureCreated()
+        {
+            Database.EnsureCreated();
+        }
+
+        private DbSet<Workshop> Workshops { get; set; }
         public IQueryable<Workshop> WorkshopsQueryRepository => Workshops.AsNoTracking();
-        public IAppDbSet<Workshop> WorkshopsCommandRepository => Workshops.AsIAppDbSet();
+        public DbSet<Workshop> WorkshopsCommandRepository => Workshops;
         
-        public DbSet<Attendee> Attendees { get; set; }
+        private DbSet<Attendee> Attendees { get; set; }
         public IQueryable<Attendee> AttendeeQueryRepository => Attendees.AsNoTracking();
-        public IAppDbSet<Attendee> AttendeeCommandRepository => Attendees.AsIAppDbSet();
+        public DbSet<Attendee> AttendeeCommandRepository => Attendees;
     }
 }

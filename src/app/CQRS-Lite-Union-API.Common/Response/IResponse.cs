@@ -2,6 +2,8 @@
 {
     public interface IResponse
     {
+        bool IsSuccessFull();
+        ErrorMessage Error { get; }
     }
 
     public interface IResponse<T> : IResponse

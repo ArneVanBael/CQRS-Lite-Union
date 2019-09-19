@@ -1,4 +1,5 @@
 using CQRS_Lite_Union_API.Application.Workshops.Commands;
+using CQRS_Lite_Union_API.Common.Database;
 using CQRS_Lite_Union_API.WebApi.Extensions;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -24,20 +25,23 @@ namespace CQRS_Lite_Union_API.WebApi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore().AddNewtonsoftJson();
+            services.AddMvcCore().AddNewtonsoftJson().AddDataAnnotations();
             services.AddDepenencyResolution();
             services.AddMediatR(typeof(CreateWorkshopCommand).Assembly);
             services.AddSettings(Configuration);
+            services.AddAutomapperAssemblies();
             services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDatabaseInitializer databaseInit)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            databaseInit.Init();
 
             app.UseStaticFiles();
             app.UseRouting();

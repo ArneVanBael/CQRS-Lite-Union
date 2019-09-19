@@ -7,36 +7,31 @@ using System.Threading.Tasks;
 
 namespace CQRS_Lite_Union_API.Application.Utils
 {
-    public abstract class CommandHandlerBase<TCommand, TResult> : IRequestHandler<TCommand, TResult> where TCommand : IRequest<TResult>
+    public abstract class QueryHandlerBase<TCommand, TResult> : IRequestHandler<TCommand, IResponse<TResult>> where TCommand : IRequest<IResponse<TResult>>
     {
         protected IAppContext Context { get; private set; }
 
-        public CommandHandlerBase(IAppContext context)
+        public QueryHandlerBase(IAppContext context)
         {
             Context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<TResult> Handle(TCommand request, CancellationToken cancellationToken)
+        public async Task<IResponse<TResult>> Handle(TCommand request, CancellationToken cancellationToken)
         {
-            TResult response;
+            IResponse<TResult> response;
             try
             {
-                Context.BeginTransaction();
-
                 response = await HandleAsync(request, cancellationToken);
-
-                Context.CommitTransaction();
             }
             catch (Exception ex)
             {
                 // log exception
-                Context.RollBackTransaction();
                 throw;
             }
 
             return response;
         }
 
-        protected abstract Task<TResult> HandleAsync(TCommand request, CancellationToken cancellationToken);
+        protected abstract Task<IResponse<TResult>> HandleAsync(TCommand request, CancellationToken cancellationToken);
     }
 }

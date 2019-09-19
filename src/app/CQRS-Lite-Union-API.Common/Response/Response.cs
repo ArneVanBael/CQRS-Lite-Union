@@ -3,7 +3,8 @@
     public class Response : IResponse
     {
         public bool IsSuccess { get { return Error == null; } }
-        public  ErrorMessage Error { get; private set; }
+        protected ErrorMessage Error;
+        ErrorMessage IResponse.Error => Error;
 
         public Response()
         {
@@ -12,7 +13,12 @@
 
         public Response(string message, ErrorMessageType type)
         {
-            this.Error = new ErrorMessage(message, type);
+            Error = new ErrorMessage(message, type);
+        }
+
+        bool IResponse.IsSuccessFull()
+        {
+            return IsSuccess;
         }
 
         public static Response Ok()
@@ -29,6 +35,11 @@
         {
             return new Response<T>(value);
         }
+
+        public static Response<T> Fail<T>(string message, ErrorMessageType type)
+        {
+            return new Response<T>(message, type);
+        }
     }
 
     public class Response<T> : Response, IResponse<T>
@@ -38,6 +49,12 @@
         public Response(T value) : base()
         {
             Value = value;
+        }
+
+        public Response(string message, ErrorMessageType type)
+        {
+            Error = new ErrorMessage(message, type);
+            this.Value = default;
         }
     }
 }

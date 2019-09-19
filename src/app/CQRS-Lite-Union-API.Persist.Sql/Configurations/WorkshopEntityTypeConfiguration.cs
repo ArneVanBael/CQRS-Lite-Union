@@ -1,6 +1,7 @@
 ﻿using CQRS_Lite_Union_API.Domain.Workshops;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 
 namespace CQRS_Lite_Union_API.Persist.Sql.Configurations
 {
