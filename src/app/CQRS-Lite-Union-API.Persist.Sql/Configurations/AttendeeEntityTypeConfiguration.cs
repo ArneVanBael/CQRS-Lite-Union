@@ -15,6 +15,8 @@ namespace CQRS_Lite_Union_API.Persist.Sql.Configurations
             builder.Property(x => x.FirstName).IsRequired().HasMaxLength(255);
             builder.Property(x => x.LastName).IsRequired().HasMaxLength(255);
             builder.Property(x => x.Created).IsRequired();
+            builder.Property(x => x.Email).IsRequired().HasMaxLength(255);
+            builder.HasAlternateKey(columns => new [] { columns.Email, columns.WorkshopId.ToString()}).HasName("registration");
             builder.HasOne(x => x.Workshop).WithMany(x => x.Attendees).HasForeignKey(x => x.WorkshopId).OnDelete(DeleteBehavior.Cascade);
         }
     }
