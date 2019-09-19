@@ -1,4 +1,5 @@
 ﻿using CQRS_Lite_Union_API.Common.Entities;
+using CQRS_Lite_Union_API.Domain.Workshops;
 
 namespace CQRS_Lite_Union_API.Domain.Attendees
 {
@@ -15,5 +16,8 @@ namespace CQRS_Lite_Union_API.Domain.Attendees
         public string Company { get; set; }
 
         public string FullName => FirstName + " " + LastName;
+
+        public int WorkshopId { get; private set; }
+        public Workshop Workshop { get; private set; }
     }
 }
