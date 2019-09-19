@@ -15,7 +15,6 @@ using System.Threading.Tasks;
 namespace CQRS_Lite_Union_API.WebApi.Workshops.Controllers
 {
     [Route("/api/workshops")]
-    [ApiController]
     public class WorkshopController : BaseController
     {
         public WorkshopController(IMediator mediator, IMapper mapper) : base(mediator, mapper)

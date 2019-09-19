@@ -18,8 +18,4 @@
     <ProjectReference Include="..\CQRS-Lite-Union-API.Persist.Sql\CQRS-Lite-Union-API.Persist.Sql.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Attendees\Models\" />
-  </ItemGroup>
-
 </Project>

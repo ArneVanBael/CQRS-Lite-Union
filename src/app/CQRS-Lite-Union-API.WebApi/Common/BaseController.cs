@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CQRS_Lite_Union_API.WebApi.Common
 {
     [Produces("application/json")]
+    [ApiController]
     public class BaseController : ControllerBase
     {
         protected IMediator Mediator { get; private set; }

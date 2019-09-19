@@ -6,9 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Attendees\Commands\" />
-    <Folder Include="Attendees\CommandHandlers\" />
-    <Folder Include="Attendees\Result\" />
     <Folder Include="Attendees\QueryHandlers\" />
     <Folder Include="Attendees\Queries\" />
   </ItemGroup>
