@@ -5,6 +5,7 @@ using CQRS_Lite_Union_API.Application.Workshops.Result;
 using CQRS_Lite_Union_API.WebApi.Common;
 using CQRS_Lite_Union_API.WebApi.Workshops.Models.CreateWorkshop;
 using CQRS_Lite_Union_API.WebApi.Workshops.Models.FindWorkshop;
+using CQRS_Lite_Union_API.WebApi.Workshops.Models.GetAttendeesOfWorkshop;
 using CQRS_Lite_Union_API.WebApi.Workshops.Models.GetWorkshops;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -55,6 +56,15 @@ namespace CQRS_Lite_Union_API.WebApi.Workshops.Controllers
             var response = await Mediator.Send(command);
 
             return BuildHttpResponse(response);
+        }
+
+        [HttpGet("{id}/attendees")]
+        public async Task<IActionResult> GetAttendeesOfWorkshop(int id) // query
+        {
+            var query = new GetAttendeesOfWorkshopQuery(id);
+            var response = await Mediator.Send(query);
+
+            return BuildHttpResponse<GetAttendeesOfWorkshopResult, GetAttendeesOfWorkshopResponse>(response);
         }
     }
 }

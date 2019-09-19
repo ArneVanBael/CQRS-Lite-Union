@@ -10,6 +10,7 @@ namespace CQRS_Lite_Union_API.Application.Workshops.Result
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public int NumberOfAttendees { get; set; }
@@ -23,6 +24,7 @@ namespace CQRS_Lite_Union_API.Application.Workshops.Result
                 {
                     Id = x.Id,
                     Name = x.Name,
+                    Description = x.Description,
                     NumberOfAttendees = x.Attendees.Count(),
                     IsFullyBooked = x.Attendees.Count() == 5,
                     EndDate = x.EndDate,

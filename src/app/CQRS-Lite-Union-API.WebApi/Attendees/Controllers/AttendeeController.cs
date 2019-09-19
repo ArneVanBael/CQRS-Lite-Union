@@ -13,7 +13,7 @@ namespace CQRS_Lite_Union_API.WebApi.Attendees.Controllers
     public class AttendeeController : BaseController
     {
         public AttendeeController(IMediator mediator, IMapper mapper) : base(mediator, mapper)
-        {
+        {   
         }
     }
 }
