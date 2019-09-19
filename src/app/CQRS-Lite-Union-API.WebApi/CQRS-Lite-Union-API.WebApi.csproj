@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CQRS-Lite-Union-API.Application\CQRS-Lite-Union-API.Application.csproj" />
     <ProjectReference Include="..\CQRS-Lite-Union-API.Infra\CQRS-Lite-Union-API.Infra.csproj" />
+    <ProjectReference Include="..\CQRS-Lite-Union-API.Persist.Sql\CQRS-Lite-Union-API.Persist.Sql.csproj" />
   </ItemGroup>
 
   <ItemGroup>

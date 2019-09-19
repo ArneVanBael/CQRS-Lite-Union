@@ -5,6 +5,12 @@
     <RootNamespace>CQRS_Lite_Union_API.Common</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="DependencyResolution\**" />
+    <EmbeddedResource Remove="DependencyResolution\**" />
+    <None Remove="DependencyResolution\**" />
+  </ItemGroup>
+
   <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy $(TargetDir)*.dll $(ProjectDir)..\..\app\CQRS-Lite-Union-API.WebApi\bin\$(ConfigurationName)\netcoreapp3.0\ /y&#xD;&#xA;xcopy $(TargetDir)*.pdb $(ProjectDir)..\..\app\CQRS-Lite-Union-API.WebApi\bin\$(ConfigurationName)\netcoreapp3.0\ /y" />
   </Target>-->

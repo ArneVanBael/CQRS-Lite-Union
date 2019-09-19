@@ -25,7 +25,7 @@ namespace CQRS_Lite_Union_API.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvcCore().AddNewtonsoftJson();
-            services.AddDepenencyResolution(Environment);
+            services.AddDepenencyResolution();
             services.AddMediatR(typeof(CreateWorkshopCommand).Assembly);
             services.AddSettings(Configuration);
             services.AddCors();
