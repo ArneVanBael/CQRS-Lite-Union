@@ -25,6 +25,7 @@ namespace CQRS_Lite_Union_API.WebApi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMemoryCache();
             services.AddMvcCore().AddNewtonsoftJson().AddDataAnnotations();
             services.AddDepenencyResolution();
             services.AddMediatR(typeof(CreateWorkshopCommand).Assembly);
