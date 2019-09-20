@@ -28,9 +28,13 @@ namespace CQRS_Lite_Union_API.Domain.Workshops
             return Response.Ok();
         }
 
-        public void CancelRegistration()
+        public IResponse UnRegisterAttendee(Attendee attendee)
         {
-           
+            if(StartDate <= DateTime.Now)
+                return Response.Fail($"Workshop has already started or passed, unregistering is not possible", ErrorMessageType.Conflict);
+
+            _attendees.Remove(attendee);
+            return Response.Ok();
         }
     }
 }

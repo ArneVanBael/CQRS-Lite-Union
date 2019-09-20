@@ -17,10 +17,14 @@ namespace CQRS_Lite_Union_API.Application.Attendees.CommandHandlers
 
         protected async override Task<IResponse> HandleAsync(UnRegisterAttendeeCommand command, CancellationToken cancellationToken)
         {
-            var attendee = await Context.AttendeeCommandRepository.SingleOrDefaultAsync(x => x.Id == command.Id);
+            var attendee = await Context.AttendeeCommandRepository.Include(x => x.Workshop).SingleOrDefaultAsync(x => x.Id == command.Id);
             if (attendee == null) return Response.Fail($"No attendee found with id: '{command.Id}'", ErrorMessageType.NotFound);
 
-            Context.AttendeeCommandRepository.Remove(attendee);
+            var workshop = attendee.Workshop;
+            var unRegisterResponse = workshop.UnRegisterAttendee(attendee);
+            if (!unRegisterResponse.IsSuccessFull()) return Response.Fail(unRegisterResponse.Error.Message, unRegisterResponse.Error.Type);
+
+            Context.WorkshopsCommandRepository.Update(workshop);
             await Context.SaveChangesAsync();
 
             return Response.Ok();
